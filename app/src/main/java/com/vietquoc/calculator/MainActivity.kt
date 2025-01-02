@@ -38,43 +38,56 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CalculatorTheme {
-                val viewModel = viewModel<CalculatorViewModel>()
-                val state = viewModel.state
-                val buttonSpacing: Dp = 8.dp
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(Color.DarkGray)
-                        .padding(16.dp)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .align(Alignment.BottomCenter),
-                        verticalArrangement = Arrangement.spacedBy(buttonSpacing)
-                    ) {
-                        Text(
-                            text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
-                            color = Color.White,
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(vertical = 32.dp),
-                            fontSize = 80.sp,
-                            fontWeight = FontWeight.Light,
-                            maxLines = 2,
-                            lineHeight = 80.sp,
-                        )
 
-                        CalculatorGrid(
-                            state = state,
-                            buttonSpacing = buttonSpacing,
-                            onAction = viewModel::onAction
-                        )
-                    }
-                }
+                MainCalculator()
             }
         }
     }
+}
+
+@Composable
+fun MainCalculator() {
+    val viewModel = viewModel<CalculatorViewModel>()
+    val state = viewModel.state
+    val buttonSpacing: Dp = 8.dp
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.DarkGray)
+            .padding(16.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter),
+            verticalArrangement = Arrangement.spacedBy(buttonSpacing)
+        ) {
+            CalculatorTextField(
+                state = state
+            )
+
+            CalculatorGrid(
+                state = state,
+                buttonSpacing = buttonSpacing,
+                onAction = viewModel::onAction
+            )
+        }
+    }
+}
+
+@Composable
+fun CalculatorTextField(state: CalculatorState) {
+    Text(
+        text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
+        color = Color.White,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 32.dp),
+        fontSize = 80.sp,
+        fontWeight = FontWeight.Light,
+        maxLines = 2,
+        lineHeight = 80.sp,
+    )
 }
 
 @OptIn(ExperimentalComposeUiApi::class)

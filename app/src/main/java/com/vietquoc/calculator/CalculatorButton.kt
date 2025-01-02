@@ -20,7 +20,8 @@ import androidx.compose.ui.unit.sp
 fun CalculatorButton(
     symbol: String = "",
     modifier: Modifier = Modifier,
-    color: Color = Color.White,
+    backgroundColor: Color = Color.Black,
+    textColor: Color = Color.White,
     textStyle: TextStyle = TextStyle(),
     onClick: () -> Unit
 ) {
@@ -28,13 +29,13 @@ fun CalculatorButton(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .clip(RoundedCornerShape(100.dp))
-            .background(color)
+            .background(backgroundColor)
             .clickable { onClick() }
             .then(modifier)
     ) {
         Text(
             text = symbol,
-            color = Color.White,
+            color = textColor,
             fontSize = 36.sp,
             style = textStyle
         )

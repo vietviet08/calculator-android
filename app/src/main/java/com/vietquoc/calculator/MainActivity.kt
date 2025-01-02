@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -27,9 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.vietquoc.calculator.ui.theme.CalculatorTheme
+import com.vietquoc.calculator.ui.theme.Green
 import com.vietquoc.calculator.ui.theme.LightGray
 import com.vietquoc.calculator.ui.theme.MediumGray
-import com.vietquoc.calculator.ui.theme.Orange
+import com.vietquoc.calculator.ui.theme.Red
 import kotlin.reflect.KFunction1
 
 @ExperimentalComposeUiApi
@@ -54,7 +56,7 @@ fun MainCalculator() {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.DarkGray)
+            .background(Color.Black)
             .padding(16.dp)
     ) {
         Column(
@@ -106,28 +108,36 @@ fun CalculatorGrid(
     ) {
         CalculatorButton(
             symbol = "AC",
-            color = LightGray,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(2f)
                 .weight(2f),
+            textColor = Red
         ) {
             onAction(CalculatorAction.Clear)
         }
         CalculatorButton(
             symbol = "Del",
-            color = LightGray,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textColor = Red
         ) {
             onAction(CalculatorAction.Delete)
         }
         CalculatorButton(
             symbol = "/",
-            color = Orange,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textColor = Green,
+            textStyle = TextStyle(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 60.sp
+            )
+
         ) {
             onAction(CalculatorAction.Operation(CalculatorOperation.Divide))
         }
@@ -139,7 +149,7 @@ fun CalculatorGrid(
     ) {
         CalculatorButton(
             symbol = "7",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -148,7 +158,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "8",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -157,7 +167,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "9",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -166,10 +176,15 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "x",
-            color = Orange,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textColor = Green,
+            textStyle = TextStyle(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 60.sp
+            )
         ) {
             onAction(CalculatorAction.Operation(CalculatorOperation.Multiply))
         }
@@ -181,7 +196,7 @@ fun CalculatorGrid(
     ) {
         CalculatorButton(
             symbol = "4",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -190,7 +205,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "5",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -199,7 +214,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "6",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -208,10 +223,15 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "-",
-            color = Orange,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textColor = Green,
+            textStyle = TextStyle(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 60.sp
+            )
         ) {
             onAction(CalculatorAction.Operation(CalculatorOperation.Subtract))
         }
@@ -223,7 +243,7 @@ fun CalculatorGrid(
     ) {
         CalculatorButton(
             symbol = "1",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -232,7 +252,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "2",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -241,7 +261,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "3",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -250,10 +270,15 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "+",
-            color = Orange,
+            backgroundColor = LightGray,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textColor = Green,
+            textStyle = TextStyle(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 60.sp
+            )
         ) {
             onAction(CalculatorAction.Operation(CalculatorOperation.Add))
         }
@@ -265,7 +290,7 @@ fun CalculatorGrid(
     ) {
         CalculatorButton(
             symbol = "0",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(2f)
                 .weight(2f)
@@ -274,7 +299,7 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = ".",
-            color = MediumGray,
+            backgroundColor = MediumGray,
             modifier = Modifier
                 .aspectRatio(1f)
                 .weight(1f)
@@ -283,10 +308,14 @@ fun CalculatorGrid(
         }
         CalculatorButton(
             symbol = "=",
-            color = Orange,
+            backgroundColor = Green,
             modifier = Modifier
                 .aspectRatio(1f)
-                .weight(1f)
+                .weight(1f),
+            textStyle = TextStyle(
+                fontWeight = FontWeight.SemiBold,
+                fontSize = 60.sp
+            )
         ) {
             onAction(CalculatorAction.Calculate)
         }

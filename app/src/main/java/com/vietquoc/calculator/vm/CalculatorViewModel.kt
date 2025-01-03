@@ -1,9 +1,12 @@
-package com.vietquoc.calculator
+package com.vietquoc.calculator.vm
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import com.vietquoc.calculator.store.CalculatorAction
+import com.vietquoc.calculator.store.CalculatorOperation
+import com.vietquoc.calculator.store.CalculatorState
 
 class CalculatorViewModel : ViewModel() {
     var state by mutableStateOf(CalculatorState())

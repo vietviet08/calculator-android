@@ -1,4 +1,4 @@
-package com.vietquoc.calculator
+package com.vietquoc.calculator.store
 
 sealed class CalculatorAction {
     data class Number(val number: Int) : CalculatorAction()

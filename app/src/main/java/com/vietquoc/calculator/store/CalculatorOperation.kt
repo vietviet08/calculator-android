@@ -1,4 +1,4 @@
-package com.vietquoc.calculator
+package com.vietquoc.calculator.store
 
 sealed class CalculatorOperation(val symbol: String) {
     data object Add : CalculatorOperation("+")

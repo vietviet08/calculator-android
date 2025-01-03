@@ -1,4 +1,4 @@
-package com.vietquoc.calculator;
+package com.vietquoc.calculator.store;
 
 data class CalculatorState(
     val number1: String = "",

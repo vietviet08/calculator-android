@@ -1,4 +1,4 @@
-package com.vietquoc.calculator
+package com.vietquoc.calculator.ui.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

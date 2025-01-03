@@ -64,7 +64,7 @@ fun CalculatorScreen() {
 }
 
 @Composable
-fun CalculatorTextField(state: CalculatorState) {
+private fun CalculatorTextField(state: CalculatorState) {
     Text(
         text = state.number1 + (state.operation?.symbol ?: "") + state.number2,
         color = Color.White,
@@ -81,7 +81,7 @@ fun CalculatorTextField(state: CalculatorState) {
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun CalculatorGrid(
+private fun CalculatorGrid(
     buttonSpacing: Dp,
     onAction: KFunction1<CalculatorAction, Unit>,
 ) {
